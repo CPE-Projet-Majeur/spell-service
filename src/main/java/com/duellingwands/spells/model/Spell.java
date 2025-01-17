@@ -1,7 +1,13 @@
 package com.duellingwands.spells.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
+@Entity
+@Table(name = "spell")
 public class Spell {
+	@Id
     private Long id;
     private String name;
     private String description;
@@ -11,6 +17,15 @@ public class Spell {
     private int damage;
 
  // Constructors
+    public Spell() {
+    	this.id = (long) 0;
+        this.name = "None";
+        this.description = "None";
+        this.type = "None";
+        this.affinity = "None";
+        this.difficulty = 0;
+        this.damage = 0;
+    }
     public Spell(Long id, String name, String description, String type, String affinity, int difficulty, int damage) {
         this.id = id;
         this.name = name;
